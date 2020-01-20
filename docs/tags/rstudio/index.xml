@@ -1,0 +1,25 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>RStudio on DL;DS</title>
+    <link>/./tags/rstudio/</link>
+    <description>Recent content in RStudio on DL;DS</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <managingEditor>danielrlabar@gmail.com (Dan LaBar)</managingEditor>
+    <webMaster>danielrlabar@gmail.com (Dan LaBar)</webMaster>
+    <lastBuildDate>Mon, 20 Jan 2020 00:00:00 +0000</lastBuildDate>
+    
+	<atom:link href="/./tags/rstudio/index.xml" rel="self" type="application/rss+xml" />
+    
+    
+    <item>
+      <title>Schedule for rstudio::conf(2020L) talks</title>
+      <link>/./post/2020-01-20-schedule-for-rstudio-conf-2020l-talks/</link>
+      <pubDate>Mon, 20 Jan 2020 00:00:00 +0000</pubDate>
+      <author>danielrlabar@gmail.com (Dan LaBar)</author>
+      <guid>/./post/2020-01-20-schedule-for-rstudio-conf-2020l-talks/</guid>
+      <description>1 Intro 2 Setup  2.1 Packages 2.2 Page rendering tool 2.3 Check robots.txt  3 Scrape  3.1 Load the page 3.2 Examine the content 3.3 Get the JSON  3.3.1 Session 3.3.2 Speaker 3.3.3 Category   4 Prepare  4.1 Convert dates/times 4.2 Add category name and style 4.3 Split out list columns 4.4 Speaker info for each session 4.</description>
+    </item>
+    
+  </channel>
+</rss>

@@ -1,0 +1,25 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>Categories on DL;DS</title>
+    <link>/./categories/</link>
+    <description>Recent content in Categories on DL;DS</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <managingEditor>danielrlabar@gmail.com (Dan LaBar)</managingEditor>
+    <webMaster>danielrlabar@gmail.com (Dan LaBar)</webMaster>
+    <lastBuildDate>Mon, 20 Jan 2020 00:00:00 +0000</lastBuildDate>
+    
+	<atom:link href="/./categories/index.xml" rel="self" type="application/rss+xml" />
+    
+    
+    <item>
+      <title>R</title>
+      <link>/./categories/r/</link>
+      <pubDate>Mon, 20 Jan 2020 00:00:00 +0000</pubDate>
+      <author>danielrlabar@gmail.com (Dan LaBar)</author>
+      <guid>/./categories/r/</guid>
+      <description></description>
+    </item>
+    
+  </channel>
+</rss>
