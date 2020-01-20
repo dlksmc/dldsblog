@@ -49,7 +49,7 @@ ignoreFiles = ["\\.Rmd$", "\\.Rmarkdown$", "_files$", "_cache$"]
 
 [Author]
   name = "Dan LaBar"
-  website = "yourwebsite.com"
+  website = "https://dldsblog.netlify.com/"
   email = "danielrlabar@gmail.com"
   #facebook = "username"
   #github = "dlksmc"
@@ -57,7 +57,7 @@ ignoreFiles = ["\\.Rmd$", "\\.Rmarkdown$", "_files$", "_cache$"]
   #bitbucket = "username"
   twitter = "embiggenData"
   #reddit = "username"
-  linkedin = "dan-labar-b4b6b54"
+  linkedin = "dan-labar"
   #xing = "username"
   stackoverflow = "users/1344789/dnlbrky"
   #snapchat = "username"
@@ -82,35 +82,29 @@ ignoreFiles = ["\\.Rmd$", "\\.Rmarkdown$", "_files$", "_cache$"]
     url = ""
     weight = 1
 
-[[menu.main]]
-    name = "About"
-    url = "page/about/index.html"
-    weight = 3
-
 #[[menu.main]]
-#    identifier = "samples"
-#    name = "Samples"
+#    identifier = "recent"
+#    name = "Recent"
 #    weight = 2
 #
 #[[menu.main]]
-#    parent = "samples"
-#    name = "Big Image Sample"
-#    url = "post/2017-03-07-bigimg-sample"
+#    parent = "recent"
+#    name = "rstudio::conf(2020L)"
+#    url = "post/2020-01-20-schedule-for-rstudio-conf-2020l-talks"
 #    weight = 1
 #
 #[[menu.main]]
-#    parent = "samples"
-#    name = "Math Sample"
-#    url = "post/2017-03-05-math-sample"
+#    parent = "recent"
+#    name = "Another post"
+#    url = "post/link-to-post
 #    weight = 2
-#
-#[[menu.main]]
-#    parent = "samples"
-#    name = "Code Sample"
-#    url = "post/2016-03-08-code-sample"
-#    weight = 3
 
 [[menu.main]]
     name = "Tags"
     url = "tags"
     weight = 3
+
+[[menu.main]]
+    name = "About"
+    url = "page/about/index.html"
+    weight = 4

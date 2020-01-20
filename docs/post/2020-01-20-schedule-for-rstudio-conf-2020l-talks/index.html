@@ -59,7 +59,7 @@
   "headline": "Schedule for rstudio::conf(2020L) talks",
   "description" : "The RStudio conference is coming up at the end of January. This is the first time I’ll be attending, and I’m really looking forward to it!\nThere will be four concurrent presentations during most of the two main days of the conference (Jan 29th and 30th). Unfortunately, it’s a little challenging to visualize the schedule and pick which talk to attend using the official conference agenda page.\n",
   "inLanguage" : "en",
-  "wordCount":  21808 ,
+  "wordCount":  21813 ,
   "datePublished" : "2020-01-20T00:00:00",
   "dateModified" : "2020-01-20T00:00:00",
   "image" : "\/img\/embiggenData.png",
@@ -101,11 +101,6 @@
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/photoswipe/4.1.2/default-skin/default-skin.min.css" integrity="sha384-iD0dNku6PYSIQLyfTOpB06F2KCZJAKLOThS5HRe8b3ibhdEQ6eKsFf/EeFxdOt5R" crossorigin="anonymous">
 
 
-<style>
-  .container {
-    min-width: 1500px;
-  }
-</style>
 
 
 
@@ -134,13 +129,13 @@
         
           
             <li>
-              <a title="About" href="/page/about/index.html">About</a>
+              <a title="Tags" href="/tags">Tags</a>
             </li>
           
         
           
             <li>
-              <a title="Tags" href="/tags">Tags</a>
+              <a title="About" href="/page/about/index.html">About</a>
             </li>
           
         
@@ -252,7 +247,7 @@
     &nbsp;|&nbsp;<i class="fas fa-clock"></i>&nbsp;103&nbsp;minutes
   
   
-    &nbsp;|&nbsp;<i class="fas fa-book"></i>&nbsp;21808&nbsp;words
+    &nbsp;|&nbsp;<i class="fas fa-book"></i>&nbsp;21813&nbsp;words
   
   
     
@@ -278,18 +273,18 @@
     <div class="col-lg-8 col-lg-offset-2 col-md-10 col-md-offset-1">
       <article role="main" class="blog-post">
         
-<script src="/./rmarkdown-libs/jquery/jquery.min.js"></script>
-<script src="/./rmarkdown-libs/elevate-section-attrs/elevate-section-attrs.js"></script>
-<script src="/./rmarkdown-libs/htmlwidgets/htmlwidgets.js"></script>
-<link href="/./rmarkdown-libs/vis/vis.min.css" rel="stylesheet" />
-<script src="/./rmarkdown-libs/vis/vis.min.js"></script>
-<link href="/./rmarkdown-libs/timeline/timevis.css" rel="stylesheet" />
-<script src="/./rmarkdown-libs/timevis-binding/timevis.js"></script>
+<script src="/rmarkdown-libs/jquery/jquery.min.js"></script>
+<script src="/rmarkdown-libs/elevate-section-attrs/elevate-section-attrs.js"></script>
+<script src="/rmarkdown-libs/htmlwidgets/htmlwidgets.js"></script>
+<link href="/rmarkdown-libs/vis/vis.min.css" rel="stylesheet" />
+<script src="/rmarkdown-libs/vis/vis.min.js"></script>
+<link href="/rmarkdown-libs/timeline/timevis.css" rel="stylesheet" />
+<script src="/rmarkdown-libs/timevis-binding/timevis.js"></script>
 <meta name="viewport" content="width=device-width, initial-scale=1" />
-<link href="/./rmarkdown-libs/bootstrap/css/bootstrap.min.css" rel="stylesheet" />
-<script src="/./rmarkdown-libs/bootstrap/js/bootstrap.min.js"></script>
-<script src="/./rmarkdown-libs/bootstrap/shim/html5shiv.min.js"></script>
-<script src="/./rmarkdown-libs/bootstrap/shim/respond.min.js"></script>
+<link href="/rmarkdown-libs/bootstrap/css/bootstrap.min.css" rel="stylesheet" />
+<script src="/rmarkdown-libs/bootstrap/js/bootstrap.min.js"></script>
+<script src="/rmarkdown-libs/bootstrap/shim/html5shiv.min.js"></script>
+<script src="/rmarkdown-libs/bootstrap/shim/respond.min.js"></script>
 
 <div id="TOC">
 <ul>
@@ -330,6 +325,13 @@
 </ul>
 </div>
 
+<!-- iOS optimization from https://github.com/almende/vis/issues/1619#issuecomment-178090892 -->
+<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no" />
+<script type="text/javascript">
+document.ontouchmove = function(event){
+  event.preventDefault();
+}
+</script>
 <div id="intro" class="section level1" number="1">
 <h1><span class="header-section-number">1</span> Intro</h1>
 <p>The <a href="https://rstudio.com/conference/">RStudio conference</a> (cleverly named <code>rstudio::conf</code>) is coming up at the end of
@@ -442,7 +444,7 @@ pg &lt;- render_json(url=urlConf, wait=5, png=TRUE, response_body=TRUE)
 #render_png(url=urlConf, wait=3) ## Alt method, if you just want the screenshot and nothing else
 pgPNG &lt;- image_read(base64_dec(pg$png))
 pgPNG</code></pre>
-<p><img src="/./post/2020-01-20-schedule-for-rstudio-conf-2020l-talks/index.en_files/figure-html/screen-scrape-1.png" width="512" /></p>
+<p><img src="/post/2020-01-20-schedule-for-rstudio-conf-2020l-talks/index.en_files/figure-html/screen-scrape-1.png" width="512" /></p>
 </div>
 <div id="examine-the-content" class="section level2" number="3.2">
 <h2><span class="header-section-number">3.2</span> Examine the content</h2>
@@ -778,7 +780,7 @@ styleColors &lt;- colorRampPalette(ggsci::pal_simpsons(&quot;springfield&quot;)(
 
 ## Examine what we&#39;ve got
 scales::show_col(styleColors)</code></pre>
-<p><img src="/./post/2020-01-20-schedule-for-rstudio-conf-2020l-talks/index.en_files/figure-html/unnamed-chunk-14-1.png" width="672" /></p>
+<p><img src="/post/2020-01-20-schedule-for-rstudio-conf-2020l-talks/index.en_files/figure-html/unnamed-chunk-14-1.png" width="672" /></p>
 <p>That’ll do. Now we need to create a little <a href="https://en.wikipedia.org/wiki/Cascading_Style_Sheets">CSS</a> to style the
 colors for the border, background, and text of the session info boxes. For the border we can use the colors from the
 palette we created. To differentiate it from the border color, let’s set the transparency of the background color to
@@ -955,7 +957,7 @@ like they actually ✂ off titles at 100 characters.</p>
   geom_histogram(binwidth=2) +
   labs(x=&quot;Number of characters in session title&quot;, y=&quot;Count&quot;) +
   theme_minimal(base_size=18)</code></pre>
-<p><img src="/./post/2020-01-20-schedule-for-rstudio-conf-2020l-talks/index.en_files/figure-html/unnamed-chunk-21-1.png" width="100%" /></p>
+<p><img src="/post/2020-01-20-schedule-for-rstudio-conf-2020l-talks/index.en_files/figure-html/unnamed-chunk-21-1.png" width="100%" /></p>
 <p>While informative, the long titles are a challenge to display compactly. For the schedule visualization tool we’d like
 to reshape the text a bit, breaking long titles into multiple rows. We can use <code>strwrap</code> to split the text at word
 boundaries, inserting a line break after 20 characters (a value chosen after trial and error).</p>
@@ -1055,7 +1057,7 @@ The name of the talk will be labeled with <code>geom_text</code>. Flip the switc
   facet_wrap(~as.IDate(startTime), ncol=1)
 
 p1</code></pre>
-<p><img src="/./post/2020-01-20-schedule-for-rstudio-conf-2020l-talks/index.en_files/figure-html/unnamed-chunk-25-1.png" width="100%" /></p>
+<p><img src="/post/2020-01-20-schedule-for-rstudio-conf-2020l-talks/index.en_files/figure-html/unnamed-chunk-25-1.png" width="100%" /></p>
 <div style="margin:auto; width:480px;">
 <a href="https://media.giphy.com/media/67SXeoc8RLwvqCwn2F/giphy.gif">
 <img style="width:100%;" src="idontlikeit.gif" alt="Uh-uh, I don't like it" />
@@ -1295,7 +1297,7 @@ specific session, etc. But… let’s just take the win, go home, and eat some s
                 </a>
               </li>
               <li>
-                <a href="https://linkedin.com/in/dan-labar-b4b6b54" title="LinkedIn">
+                <a href="https://linkedin.com/in/dan-labar" title="LinkedIn">
                   <span class="fa-stack fa-lg">
                     <i class="fas fa-circle fa-stack-2x"></i>
                     <i class="fab fa-linkedin fa-stack-1x fa-inverse"></i>
@@ -1324,7 +1326,7 @@ specific session, etc. But… let’s just take the win, go home, and eat some s
         <p class="credits copyright text-muted">
           
             
-              <a href="yourwebsite.com">Dan LaBar</a>
+              <a href="https://dldsblog.netlify.com/">Dan LaBar</a>
             
           
 
