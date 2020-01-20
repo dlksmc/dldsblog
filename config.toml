@@ -1,5 +1,6 @@
-baseurl = "./"
+#baseurl = "./"
 #baseurl = "https://dlksmc.github.io/page/"
+baseurl = "https://dldsblog.netlify.com/"
 publishDir = "docs"
 DefaultContentLanguage = "en"
 title = "DL;DS"

@@ -2,49 +2,49 @@
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
   <channel>
     <title>Tags on DL;DS</title>
-    <link>/./tags/</link>
+    <link>/tags/</link>
     <description>Recent content in Tags on DL;DS</description>
     <generator>Hugo -- gohugo.io</generator>
     <managingEditor>danielrlabar@gmail.com (Dan LaBar)</managingEditor>
     <webMaster>danielrlabar@gmail.com (Dan LaBar)</webMaster>
     <lastBuildDate>Mon, 20 Jan 2020 00:00:00 +0000</lastBuildDate>
     
-	<atom:link href="/./tags/index.xml" rel="self" type="application/rss+xml" />
+	<atom:link href="/tags/index.xml" rel="self" type="application/rss+xml" />
     
     
     <item>
       <title>conference</title>
-      <link>/./tags/conference/</link>
+      <link>/tags/conference/</link>
       <pubDate>Mon, 20 Jan 2020 00:00:00 +0000</pubDate>
       <author>danielrlabar@gmail.com (Dan LaBar)</author>
-      <guid>/./tags/conference/</guid>
+      <guid>/tags/conference/</guid>
       <description></description>
     </item>
     
     <item>
       <title>R</title>
-      <link>/./tags/r/</link>
+      <link>/tags/r/</link>
       <pubDate>Mon, 20 Jan 2020 00:00:00 +0000</pubDate>
       <author>danielrlabar@gmail.com (Dan LaBar)</author>
-      <guid>/./tags/r/</guid>
+      <guid>/tags/r/</guid>
       <description></description>
     </item>
     
     <item>
       <title>RStudio</title>
-      <link>/./tags/rstudio/</link>
+      <link>/tags/rstudio/</link>
       <pubDate>Mon, 20 Jan 2020 00:00:00 +0000</pubDate>
       <author>danielrlabar@gmail.com (Dan LaBar)</author>
-      <guid>/./tags/rstudio/</guid>
+      <guid>/tags/rstudio/</guid>
       <description></description>
     </item>
     
     <item>
       <title>scraping</title>
-      <link>/./tags/scraping/</link>
+      <link>/tags/scraping/</link>
       <pubDate>Mon, 20 Jan 2020 00:00:00 +0000</pubDate>
       <author>danielrlabar@gmail.com (Dan LaBar)</author>
-      <guid>/./tags/scraping/</guid>
+      <guid>/tags/scraping/</guid>
       <description></description>
     </item>
     
