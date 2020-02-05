@@ -1,0 +1,975 @@
+---
+title: Notes from rstudio::conf(2020L)
+author: Dan LaBar
+#date: "2020-02-05"
+date: '2020-02-04'
+slug: []
+categories:
+  - R
+tags:
+  - R
+  - RStudio
+  - conference
+  - notes
+type: ''
+subtitle: "What I learned (or at least wrote down) at the RStudio Conference"
+image: 'post/2020-02-04-notes-from-rstudio-conf-2020l/rstudioconf2020notes.png'
+description: "<p>The RStudio Conference in San Francisco last week was a great experience!  I'm posting my raw notes here, and hopefully will create a summary with some highlights at some point in the future.</p>"
+output:
+  blogdown::html_page:
+      number_sections: false
+      toc: true
+---
+
+<script src="/rmarkdown-libs/header-attrs/header-attrs.js"></script>
+
+<div id="TOC">
+<ul>
+<li><a href="#day-3-sessions-2020-01-29">Day 3 sessions (2020-01-29)</a>
+<ul>
+<li><a href="#open-source-software-for-data-science">Open Source Software for Data Science</a></li>
+<li><a href="#data-visualization-and-designing-with-ai">Data, Visualization, and Designing with AI</a></li>
+<li><a href="#deploying-end-to-end-data-science-with-shiny-plumber-and-pins">Deploying End-to-End Data Science with Shiny, Plumber, and Pins</a></li>
+<li><a href="#were-hitting-r-a-million-times-a-day-so-we-made-a-talk-about-it">We’re hitting R a million times a day so we made a talk about it</a></li>
+<li><a href="#azure-pipelines-and-github-actions"><del>Azure Pipelines and</del> Github Actions</a></li>
+<li><a href="#accelerating-analytics-with-apache-arrow">Accelerating Analytics with Apache Arrow</a></li>
+<li><a href="#updates-on-spark-mlflow-and-the-broader-ml-ecosystem">Updates on Spark MLFlow, and the broader ML ecosystem</a></li>
+<li><a href="#whats-new-in-tensorflow-for-r">What’s new in Tensorflow for R?</a></li>
+<li><a href="#deep-learning-with-r">Deep Learning with R</a></li>
+<li><a href="#getting-things-logged">Getting things logged</a></li>
+<li><a href="#building-a-native-ipad-dashboard-using-plumber-and-rstudio-connect-in-pharma">Building a native iPad dashboard using Plumber and RStudio Connect in Pharma</a></li>
+<li><a href="#flatironkitchen-how-we-overhauled-a-frakensteinian-sql-workflow-with-the-tidyverse">FlatironKitchen: How we overhauled a Frakensteinian SQL workflow with the Tidyverse</a></li>
+<li><a href="#making-better-spaghetti-plots-exploring-longitudinal-data-with-the-brolgar-package">Making better spaghetti (plots): Exploring longitudinal data with the brolgar package</a></li>
+</ul></li>
+<li><a href="#day-4-sessions-2020-01-30">Day 4 sessions (2020-01-30)</a>
+<ul>
+<li><a href="#object-of-type-closure-is-not-subsettable">Object of type ‘closure’ is not subsettable</a></li>
+<li><a href="#rmarkdown-driven-development">RMarkdown Driven Development</a></li>
+<li><a href="#renv-project-environment-to-r">renv: Project Environment to R</a></li>
+<li><a href="#designing-effective-visualizations">Designing Effective Visualizations</a></li>
+<li><a href="#shiny-new-things-using-rshiny-to-bridge-the-gap-in-emr-reporting">Shiny New Things: Using R/Shiny to Bridge the Gap in EMR Reporting</a></li>
+<li><a href="#mlops-for-r-with-azure-machine-learning">MLOps for R with Azure Machine Learning</a></li>
+<li><a href="#totally-tidy-tuning-techniques">Totally Tidy Tuning Techniques</a></li>
+<li><a href="#neural-networks-for-longitudinal-data-analysis">Neural Networks for Longitudinal Data Analysis</a></li>
+<li><a href="#stochastic-block-models-with-r-statistically-rigorous-clustering-with-rigorous-code">Stochastic Block Models with R: Statistically rigorous clustering with rigorous code</a></li>
+</ul></li>
+<li><a href="#day-4-lightning-talks-2020-01-29">Day 4 lightning talks (2020-01-29)</a>
+<ul>
+<li><a href="#datasets-in-reproducible-research-with-pins">Datasets in Reproducible Research with ‘pins’</a></li>
+<li><a href="#rproject-templates-to-automate-and-standardize-your-workflow">Rproject templates to automate and standardize your workflow</a></li>
+<li><a href="#wavesurfer">Wavesurfer</a></li>
+<li><a href="#lessons-about-r-i-learned-from-my-cat">Lessons about R I learned from my cat</a></li>
+</ul></li>
+<li><a href="#interesting-packages">Interesting packages</a></li>
+</ul>
+</div>
+
+<p><br>
+<img style="width:100%;" src="rstudioconf2020notes.png" alt="RStudio Conference 2020 notes" /></p>
+<p>I had the good fortune to attend the RStudio Conference in San Francisco last week. It was a great experience!</p>
+<p>Unfortunately, after being away from my day job for a week, I have quite a bit of catching up to do and not enough time to blog about what I saw and learned at the conference. I did however try to take notes during all the talks I attended, so I’m posting them here with the hopes of eventually coming back and pulling out some summaries of the most interesting parts.</p>
+<p>You can follow along with the code from all of the 2-day workshops at <a href="https://github.com/rstudio-conf-2020">github.com/rstudio-conf-2020</a>, and the presentation videos from the third and fourth days should eventually be posted at <a href="https://resources.rstudio.com/rstudio-conf-2020">resources.rstudio.com/rstudio-conf-2020</a>. In the meantime, <a href="https://twitter.com/Emil_Hvitfeldt">Emil Hvitfeldt</a> and friends have collected links to slides and other resources at <a href="https://github.com/EmilHvitfeldt/RStudioConf2020Slides">github.com/EmilHvitfeldt/RStudioConf2020Slides</a>.</p>
+<div id="day-3-sessions-2020-01-29" class="section level1">
+<h1>Day 3 sessions (2020-01-29)</h1>
+<div id="open-source-software-for-data-science" class="section level2">
+<h2>Open Source Software for Data Science</h2>
+<ul>
+<li>Speaker: JJ Allaire <a href="https://twitter.com/fly_upside_down">fly_upside_down</a></li>
+<li><a href="https://rstudio.com/slides/rstudio-pbc">Slides</a></li>
+<li><em>It’ll be better to just watch the video when it comes out</em>, but here is his overview
+<ul>
+<li>Origins of RStudio</li>
+<li>Why free and open source software?</li>
+<li>Tools for scientific and technical computing
+<ul>
+<li>Where do they come from?</li>
+<li>How are they financially supported?</li>
+<li>Are they trustworthy?</li>
+</ul></li>
+<li>Corporations and their discontents</li>
+<li>RStudio’s role and responsibilities</li>
+</ul></li>
+<li>RStudio, Inc. <a href="https://blog.rstudio.com/2020/01/29/rstudio-pbc">announced</a> they are now RStudio, PBC, a <a href="https://en.wikipedia.org/wiki/Benefit_corporation">Public Benefit Corporation</a></li>
+</ul>
+</div>
+<div id="data-visualization-and-designing-with-ai" class="section level2">
+<h2>Data, Visualization, and Designing with AI</h2>
+<ul>
+<li>Speakers: Fernanda Viegas <a href="https://twitter.com/viegasf">viegasf</a>, Martin Wattenberg <a href="https://twitter.com/wattenberg">wattenberg</a></li>
+<li>From the Google <a href="https://research.google/teams/brain/pair/">PAIR (<strong>P</strong>eople + <strong>AI</strong> <strong>R</strong>esearch) lab</a></li>
+<li>“Debug data not code”</li>
+<li>Resources
+<ul>
+<li><a href="https://pair.withgoogle.com/">Guidebook for AI design</a></li>
+<li><a href="https://research.google.com/bigpicture/attacking-discrimination-in-ml/">Attacking discrimination with smarter machine learning</a></li>
+<li><a href="https://pair-code.github.io/what-if-tool/">What-if Tool</a> for easy exploration of machine learning models</li>
+<li><a href="https://pair-code.github.io/facets/">FACETS</a> is a nice interface for visualizing data, especially training/validation images</li>
+<li>“Uniform Manifold Approximation and Projection (UMAP) is a dimension reduction technique that can be used for visualisation similarly to t-SNE, but also for general non-linear dimension reduction.”
+<ul>
+<li><a href="https://github.com/pair-code/umap-js">UMAP-JS</a></li>
+<li>UMAP embedding projector is an <a href="https://github.com/tensorflow/tensorboard/tree/master/tensorboard/plugins/projector">open source</a> plugin for TensorFlow Tensorboard
+<ul>
+<li>They don’t really have a solution for tabular data</li>
+</ul></li>
+</ul></li>
+<li><a href="https://projector.tensorflow.org/">TensorFlow embedding projector</a>
+<ul>
+<li>Example shows word2vec embeddings</li>
+</ul></li>
+<li>Quantitative <strong>T</strong>esting with <strong>C</strong>oncept <strong>A</strong>ctivation <strong>V</strong>ectors (TCAV)
+<ul>
+<li>Refer to a <a href="https://blog.dominodatalab.com/model-interpretability-tcav-testing-concept-activation-vectors/">blog post from Domino Data Lab</a> for links to some conference videos/slides with more info</li>
+<li>Method for interpreting the internal state of a neural network
+<ul>
+<li>How important was a concept to the model prediction, even if the concept wasn’t specified in training?</li>
+</ul></li>
+<li>Example: we’ve built a CNN model that predicts whether an image contains a zebra or not
+<ul>
+<li>Why is it predicting an image contains a zebra? How important is the concept of “stripes” to the prediction?</li>
+<li>Feed it a small sample of images with generic stripe patterns (any kind, not of zebras) and random images</li>
+<li>Represent these images in the internal space of the zebra CNN classifier, and train a linear classifier to separate striped images from random images</li>
+<li>The vector that is orthogonal to the striped-or-not decision boundary points away from random images toward the direction of striped images</li>
+<li>How much does the probability that the image contains a zebra change when the image is altered to be more like the “stripe” concept or less like it? If it changes a lot, then the concept is important.</li>
+</ul></li>
+</ul></li>
+<li><a href="https://ai.googleblog.com/2019/07/building-smily-human-centric-similar.html"><strong>S</strong>imilar <strong>M</strong>edical <strong>I</strong>mages <strong>L</strong>ike <strong>Y</strong>ours (SMILY)</a>
+<ul>
+<li>Doctors used the output of a ML model to predict cancer from images</li>
+<li>When the only info they received was a prediction/probability, they used it less often and trusted it less than when they were given an interactive tool to understand the prediction</li>
+<li>They want to find similar images, so PAIR created inputs for refining the doctor’s definition of similar
+<ul>
+<li>Can refine by selecting a region of the image, selecting a few examples from many that are displayed, or adjusting “concept” sliders (from TCAV?)</li>
+</ul></li>
+</ul></li>
+</ul></li>
+</ul>
+</div>
+<div id="deploying-end-to-end-data-science-with-shiny-plumber-and-pins" class="section level2">
+<h2>Deploying End-to-End Data Science with Shiny, Plumber, and Pins</h2>
+<ul>
+<li>Speaker: Alex Gold <a href="https://twitter.com/alexkgold">alexkgold</a></li>
+<li>Increase analysis value by making the product accessible, reproducible, and secure</li>
+<li>A typical problem is where to store intermediate steps like transformed data and the ML model</li>
+<li>The <a href="https://pins.rstudio.com/"><code>pins</code> package</a> easily lets you take an R object, store it somewhere else, and retrieve it
+<ul>
+<li>Locations include: RStudio Connect, Kaggle, Github, Azure, GCP, S3, etc.</li>
+<li>Specify the name of the board and the name of the pinned object</li>
+<li>Pin it using <code>pin()</code></li>
+<li>Retrieve it using <code>pin_get()</code>
+<ul>
+<li>Always gets the newest version</li>
+</ul></li>
+</ul></li>
+<li>The best use case is for caching items that:
+<ul>
+<li>Are small (1GB or less)</li>
+<li>Need to be reused</li>
+<li>Need to be the latest version
+<ul>
+<li>Pins aren’t a good choice when you need older versions of an object</li>
+</ul></li>
+</ul></li>
+<li>Use the <a href="https://tidymodels.github.io/butcher/"><code>butcher</code> package</a> to pull out things from a model (i.e. make it smaller)</li>
+</ul>
+</div>
+<div id="were-hitting-r-a-million-times-a-day-so-we-made-a-talk-about-it" class="section level2">
+<h2>We’re hitting R a million times a day so we made a talk about it</h2>
+<ul>
+<li>Speakers: Heather Nolis <a href="https://twitter.com/heatherklus">heatherklus</a>, Jacqueline Nolis <a href="https://twitter.com/skyetetra">skyetetra</a></li>
+<li><a href="https://putrinprod.com/talks/rstudioconf2020.pdf">Slides</a></li>
+<li>The <a href="https://github.com/tmobile/loadtest"><code>loadtest</code> package</a> performs load testing</li>
+<li>Look at more than just average response time</li>
+</ul>
+</div>
+<div id="azure-pipelines-and-github-actions" class="section level2">
+<h2><del>Azure Pipelines and</del> Github Actions</h2>
+<ul>
+<li>Speaker: Jim Hester <a href="https://twitter.com/jimhester_">jimhester_</a></li>
+<li><a href="https://speakerdeck.com/jimhester/github-actions-for-r">Slides</a>
+<ul>
+<li>Created in Keynote using a nifty superhero theme!</li>
+</ul></li>
+<li>Recommends using Github Actions
+<ul>
+<li>Support for Linux, macOS, Windows, and Docker</li>
+<li>Can run up to 20 concurrent jobs for 6 hours per job</li>
+<li>Free for academic/open source</li>
+</ul></li>
+<li>Azure Pipelines
+<ul>
+<li>Actually older than Github Actions, and GA runs on Azure</li>
+<li>Challenging to set up with Github
+<ul>
+<li>Pipelines might work better if using DevOps Repos</li>
+</ul></li>
+<li>Many of the features are similar</li>
+</ul></li>
+<li><code>usethis::use_github_actions()</code>
+<ul>
+<li>Can run on push, pull request, etc</li>
+<li><code>use_github_actions_tidy()</code>
+<ul>
+<li>Uses r-hub to manage Linux package dependencies</li>
+</ul></li>
+</ul></li>
+<li>Check out <a href="https://github.com/r-lib/actions" class="uri">https://github.com/r-lib/actions</a></li>
+<li>Can add secrets in repo settings</li>
+<li>Can render a readme on change</li>
+</ul>
+</div>
+<div id="accelerating-analytics-with-apache-arrow" class="section level2">
+<h2>Accelerating Analytics with Apache Arrow</h2>
+<ul>
+<li>Speaker: Neal Richardson <a href="https://twitter.com/enpiar">enpiar</a></li>
+<li><a href="https://enpiar.com/talks/rstudio-conf-2020">Slides</a></li>
+<li>R doesn’t work as well when:
+<ul>
+<li>Your data is bigger than memory, spread across many files, or contains complex types</li>
+<li>You are using clusters/GPUs</li>
+</ul></li>
+<li>Feather was the first version of Arrow but has some limitations</li>
+<li>Arrow
+<ul>
+<li>The “next generation” of data frames</li>
+<li>A format for how data is arranged in memory</li>
+<li>Has bindings for 11 languages
+<ul>
+<li>Python, JavaScript, etc.</li>
+<li>Many are enabled through C++</li>
+</ul></li>
+</ul></li>
+<li>You specify a directory of files and run <code>open_dataset()</code>
+<ul>
+<li>You can then use <code>dplyr</code> on the files</li>
+<li>It can read Parquet, files in S3, etc.
+<ul>
+<li>High compression rates and fast reads/writes</li>
+</ul></li>
+<li>You can specify partitions from the directory structure (e.g. ./year/month/<em>files</em> would have partitions by year and month) and it adds columns to your data for the partition values</li>
+<li>Select/filter uses the partitions, in parallel</li>
+</ul></li>
+<li>Upcoming
+<ul>
+<li>There should be a new release of the R package soon</li>
+<li>Working on getting <code>arrow</code> working with <code>reticulate</code></li>
+</ul></li>
+<li>Neal didn’t seem to know what <code>data.table</code> really is or how it compares to <code>arrow</code></li>
+<li>Other projects
+<ul>
+<li>Flight (transferring data around the network), Plasma, Gandiva</li>
+</ul></li>
+</ul>
+</div>
+<div id="updates-on-spark-mlflow-and-the-broader-ml-ecosystem" class="section level2">
+<h2>Updates on Spark MLFlow, and the broader ML ecosystem</h2>
+<ul>
+<li>Speaker: Javier Luraschi <a href="https://twitter.com/javierluraschi">javierluraschi</a></li>
+<li><a href="https://rpubs.com/jluraschi/rsconf-2020">Slides</a></li>
+<li>There is now an <a href="https://github.com/rstudio/sparkxgb">xgboost implementation</a> in Spark from R</li>
+<li><a href="https://underrated.sigmaratings.com/post/187988777561/a-practical-intro-to-using-spark-nlp-bert-word">SparkNLP can generate BERT embeddings</a></li>
+<li><a href="https://delta.io">Delta Lake</a> is an open source tool that brings ACID to Spark
+<ul>
+<li>Includes data versioning</li>
+</ul></li>
+<li>Javier was really excited about a new “feature” called Barrier Exectution
+<ul>
+<li>Seemed to be more “under the hood”, but I think it’s meant to help with cases where deep learning models are using multiple GPUs for training</li>
+</ul></li>
+<li>MLFlow manages the machine learning lifecycle
+<ul>
+<li>Tracking: Record and query experiments (code, data, config, and results)</li>
+<li>Projects: Packaging format for reproducible runs on any platform</li>
+<li>Models: General format for sending models to diverse deployment tools</li>
+<li>Track data version, model parameter version, and resulting metrics</li>
+</ul></li>
+</ul>
+</div>
+<div id="whats-new-in-tensorflow-for-r" class="section level2">
+<h2>What’s new in Tensorflow for R?</h2>
+<ul>
+<li>Speaker: Daniel Falbel <a href="https://twitter.com/dfalbel">dfalbel</a></li>
+<li><a href="https://dfalbel.github.io/talks/2020-01-rstudio-conf">Slides</a></li>
+<li>The <a href="https://github.com/rstudio/tfdatasets"><code>tfdatasets</code> package</a> loads and pre-processes tabular data
+<ul>
+<li><code>feature_spec()</code> function lets you create a recipe of transformations</li>
+<li>Can use <code>purrr</code>-style map/lambda functions</li>
+</ul></li>
+<li>The <a href="https://github.com/t-kalinowski/tfautograph"><code>tfautograph</code> package</a> lets you write conditional loops (if/while/for)</li>
+<li>The <a href="https://github.com/rstudio/tfhub"><code>tfhub</code> package</a> lets you use pre-trained models from TFHub</li>
+<li><a href="https://github.com/rstudio/tfhub/blob/master/vignettes/examples/recipes.R">This example</a> shows how to use <code>tfhub::step_pretrained_text_embedding()</code> within a <code>tidymodels</code> workflow to get pretrained embeddings from a model in TensorFlow Hub</li>
+<li>The <code>keras::adapt()</code> function finds frequencies of words, apparently without requiring Python dependencies</li>
+<li><a href="https://blogs.rstudio.com/tensorflow/posts/2019-11-07-tfp-cran/">This blog post</a> has three example use cases for the <a href="https://github.com/rstudio/tfprobability"><code>tfprobability</code> package</a>
+<ul>
+<li>The model can learn multiple distribution parameters using <code>layer_distribution_lambda()</code>
+<ul>
+<li>Example: For normally distributed data, learn the variance in addition to the mean</li>
+</ul></li>
+</ul></li>
+<li>The <a href="https://github.com/r-tensorflow/autokeras"><code>autokeras</code> package</a> is an interface to AutoML</li>
+<li>The <a href="https://github.com/jonathanbratt/RBERT"><code>RBERT</code> package</a> is available, but not recommended for fine-tuning</li>
+</ul>
+</div>
+<div id="deep-learning-with-r" class="section level2">
+<h2>Deep Learning with R</h2>
+<ul>
+<li>Speaker: Paige Bailey <a href="https://twitter.com/DynamicWebPaige">DynamicWebPaige</a></li>
+<li>TF2.0
+<ul>
+<li>Changed programming model to eager execution, so you can get results back in a more interactive fashion</li>
+<li>API streamlining</li>
+<li>Keras tuner does hyperparameter tuning</li>
+</ul></li>
+<li>Symbolic vs Imperative interface; don’t recommend mixing</li>
+<li>All Keras development is now a part of TensorFlow</li>
+<li>The <a href="https://github.com/rstudio/tfdatasets"><code>tfdatasets</code> package</a> is a data input pipeline</li>
+<li>Use the SavedModel format which can be generated from R or Python and used by TF Serving, TF Lite, TensorFlow.js, etc.</li>
+<li>Tensorboard is integrated with Jupyter</li>
+<li>Model explainability is an on-going focus for Google and TensorFlow</li>
+</ul>
+</div>
+<div id="getting-things-logged" class="section level2">
+<h2>Getting things logged</h2>
+<ul>
+<li>Speaker: Gergely Daroczi <a href="https://twitter.com/daroczig">daroczig</a></li>
+<li><a href="https://daroczig.github.io/slides/2020-01-29_rstudio-conf_getting-things-logged">Slides</a></li>
+<li>Many R developers do “homemade logging”, but it can get difficult (example: parallelized code)</li>
+<li>He created the <a href="https://github.com/daroczig/logger"><code>logger</code> package</a></li>
+<li>Use <code>log_*()</code> functions like <code>log_info()</code> or <code>log_trace()</code></li>
+<li><code>log_warnings()</code> prints warnings <em>when they happen</em>, not at the end like the default R behavior</li>
+<li>Uses the <a href="https://github.com/tidyverse/glue"><code>glue</code> package</a> for strings or <code>formatter_sprintf()</code></li>
+<li>It’s easy to automatically insert the username, OS, etc. in the message</li>
+<li>Can log to console, file, Slack, Pushbullet</li>
+<li>Integration with Shiny</li>
+<li><code>log_eval()</code> logs the result of the expression to evaluate</li>
+<li>The package evaluates if the logging threshold has been met in 20 microseconds, so you can include logging pretty much anywhere without slowing things down</li>
+<li>Look at the <a href="https://github.com/daroczig/dbr"><code>dbr</code> package</a>, an alternative to <code>DBI</code> that automatically logs the connection details, SQL query, rows returned, time elapsed, etc.</li>
+</ul>
+</div>
+<div id="building-a-native-ipad-dashboard-using-plumber-and-rstudio-connect-in-pharma" class="section level2">
+<h2>Building a native iPad dashboard using Plumber and RStudio Connect in Pharma</h2>
+<ul>
+<li>Speakers: Aymen Waqar and Damian Rodziewicz <a href="https://twitter.com/D_Rodziewicz">D_Rodziewicz</a></li>
+<li>Pretty good high-level presentation–check their slides when they come out</li>
+</ul>
+</div>
+<div id="flatironkitchen-how-we-overhauled-a-frakensteinian-sql-workflow-with-the-tidyverse" class="section level2">
+<h2>FlatironKitchen: How we overhauled a Frakensteinian SQL workflow with the Tidyverse</h2>
+<ul>
+<li>Speaker: Nathaniel Phillips <a href="https://twitter.com/yarrrbook">YaRrrBook</a></li>
+<li>They are working to understand the patient journey
+<ul>
+<li>Trying to get a <code>data.frame</code> with one row per patient</li>
+<li>Used for timelines, survival analysis, and finding treatment patterns</li>
+</ul></li>
+<li>Previously, they had different data scientists using mixures of tools including SQL, R, and Python
+<ul>
+<li>Code duplication</li>
+<li>No testing or documentation</li>
+<li>Inconsistent style</li>
+<li>Difficult for new contributors</li>
+</ul></li>
+<li>Solution
+<ul>
+<li>Centralized code</li>
+<li>Modular, functional code
+<ul>
+<li>Start this, do that, plot that</li>
+<li>Recipes / vignettes</li>
+<li>Tested and verbose</li>
+</ul></li>
+</ul></li>
+<li>FlatironKitchen package
+<ul>
+<li>Object with database connection, patient data, etc.</li>
+<li>Print method shows the number of patients, dates, warnings</li>
+<li><code>fi_cohort_start("SkinCancer")</code>
+<ul>
+<li>Tells you when it starts, what tables it is touching, size of cohort</li>
+</ul></li>
+<li><code>fi_add_demographics()</code> pulls from the demographic table and adds it to the recipe</li>
+<li><code>fi_add_mortality()</code> pulls data from the death table and adds it to the recipe
+<ul>
+<li>Can easily show the number of deaths, most recent death, etc.</li>
+</ul></li>
+<li>Window functions like <code>fi_add_biomarker()</code> query and summarize one-to-many tables
+<ul>
+<li>You can pick the last value after/before an event, how many events (N), and several other versions</li>
+</ul></li>
+<li><code>fi_calc_age()</code> calculates the patient age at a date given a column name for their birthdate and the event date</li>
+<li><code>fi_cohort_include()</code> filters the cohort and includes a human-readable description of the filter</li>
+<li>Put together a piped set of recipe steps</li>
+<li>Several built-in plot methods</li>
+</ul></li>
+</ul>
+</div>
+<div id="making-better-spaghetti-plots-exploring-longitudinal-data-with-the-brolgar-package" class="section level2">
+<h2>Making better spaghetti (plots): Exploring longitudinal data with the brolgar package</h2>
+<ul>
+<li>Speaker: Nick Tierney <a href="https://twitter.com/nj_tierney">nj_tierney</a></li>
+<li><a href="https://njt-rstudio20.netlify.com">Slides</a>, <a href="https://github.com/njtierney/rstudioconf20">Github</a>, <a href="bit.ly/njt-rstudio">bit.ly/njt-rstudio</a></li>
+<li>Overplotting is an issue
+<ul>
+<li><del>transparency + a model/fit</del></li>
+</ul></li>
+<li>Wants to be able to Look at some data (not all), find interesting data, and develop a model</li>
+<li>Create a time series tibble using <code>as_tsibble(index="year", key="country", regular=FALSE...</code></li>
+<li>If solving one problem requires solving three or more smaller problems, you’re now distracted and you need better tools!</li>
+<li><code>facet_sample()</code> gets three groups each per 12 facets by default</li>
+<li><code>facet_strata()</code> gets all groups spread over 12 facets
+<ul>
+<li>Can reorder by a variable rather than randomly assigning a facet</li>
+</ul></li>
+<li>Interesting samples
+<ul>
+<li>Define what is interesting (largest, smallest)</li>
+<li>The <a href="https://github.com/tidyverts/feasts"><code>feasts</code> package</a> has many <code>feat_</code> functions for extracting useful time series metrics/statistics</li>
+</ul></li>
+<li>Understanding
+<ul>
+<li>Add linear mixed effect model to get predicted value and residual</li>
+</ul></li>
+</ul>
+</div>
+</div>
+<div id="day-4-sessions-2020-01-30" class="section level1">
+<h1>Day 4 sessions (2020-01-30)</h1>
+<div id="object-of-type-closure-is-not-subsettable" class="section level2">
+<h2>Object of type ‘closure’ is not subsettable</h2>
+<ul>
+<li>Speaker: Jenny Bryan <a href="https://twitter.com/JennyBryan">JennyBryan</a></li>
+<li><a href="https://speakerdeck.com/jennybc/object-of-type-closure-is-not-subsettable">Slides</a>, <a href="https://rstd.io/debugging">Github</a></li>
+<li>Reset
+<ul>
+<li>Restart R when things get weird</li>
+<li>From the command line, use <code>R --no-save --no-restore-data</code> to not save the workspace</li>
+<li><code>rm(list=ls())</code> doesn’t reset a lot of the things!</li>
+</ul></li>
+<li>Reprex
+<ul>
+<li>“Don’t wring hands and speculate. Work a small concrete example that reveals, confirms, or eliminates.”</li>
+<li>Create a minimally reproducible example</li>
+<li>The <a href="https://github.com/tidyverse/reprex"><code>reprex</code> package</a> helps with the “reproducible” part, but humans have to apply the art of getting the “minimal” example
+<ul>
+<li>To find a needle, try looking in a smaller haystack</li>
+<li>The example should be small, simple, and inline</li>
+<li>Remove unnecessary data/packages/functions</li>
+<li>Do not rely on hidden states</li>
+</ul></li>
+<li>The problem is the gap between what you <em>think or say</em> you’re doing and what you’re <em>actually</em> doing</li>
+<li>Why make a reprex?
+<ul>
+<li>80% of the effort is to help you solve your own problem</li>
+<li>20% is to help the others help you</li>
+</ul></li>
+</ul></li>
+<li>Debug
+<ul>
+<li><code>traceback()</code>
+<ul>
+<li>Like a death certificate saying what happened</li>
+<li><code>rlang::last_trace()</code> is a way to show nicer traceback messages</li>
+</ul></li>
+<li><code>options(error=recover)</code>
+<ul>
+<li>Lets you perform an autopsy by inspecting the call stack</li>
+<li>Run before the problematic statement</li>
+<li>Run <code>ls.str()</code> to see all the objects in the environment at that point</li>
+</ul></li>
+<li><code>browser()</code>
+<ul>
+<li>Interrupt things before death is inevitable</li>
+<li>Insert <code>browser()</code> at the beginning of the problematic function</li>
+<li>If you don’t have easy access to the source code, you can use <code>debug(functionName)</code> instead
+<ul>
+<li>Use <code>undebug()</code> when done so that the function won’t trigger debug mode the next time</li>
+<li>Use <code>debugonce()</code> to only debug it once (like calling <code>debug()</code> and then <code>undebug()</code>)</li>
+</ul></li>
+<li>Use <code>n</code> to get to the next line</li>
+<li>Use <code>Q</code> to get out of the browser</li>
+</ul></li>
+</ul></li>
+<li>Deter
+<ul>
+<li>When you find a bug, add a test/assertion to make sure it doesn’t happen the next time!
+<ul>
+<li>Example: the input vector to a function needs to be numeric, so add that check at the beginning of the function</li>
+</ul></li>
+<li>Use <code>testthat::test_check()</code></li>
+<li>Run the checks on THEIR machine, not yours</li>
+<li>“Use mind-bendy stuff in moderation”
+<ul>
+<li>Recursion or high-dimensional data arrays might seem elegant initially but will cause you problems in the long run</li>
+</ul></li>
+<li>Leave “access panels” that let the user “flip a switch” so that they and you (the package creator) can see detailed information for debugging</li>
+<li>Write error messages for humans
+<ul>
+<li>Indicate where it occured, a descriptive name, and a hint of what to try</li>
+</ul></li>
+</ul></li>
+</ul>
+</div>
+<div id="rmarkdown-driven-development" class="section level2">
+<h2>RMarkdown Driven Development</h2>
+<ul>
+<li>Speaker: Emily Riederer <a href="https://twitter.com/EmilyRiederer">EmilyRiederer</a></li>
+<li><a href="https://www.slideshare.net/EmilyRiederer/rmarkdown-driven-development-rstudioconf-2020">Slides</a></li>
+<li>Start with a notebook
+<ul>
+<li>Remove troublesome components from the notebook
+<ul>
+<li>Use <code>params</code> in the YAML header instead of hardcoded vars</li>
+<li>Remove unused packages and code experiments</li>
+</ul></li>
+<li>Rearrange chunks
+<ul>
+<li>Put all dependencies and computation up front</li>
+<li>Alter between data vis and data wrangling after that</li>
+<li>A comment followed by <code>----</code> creates a collapsing element in the HTML</li>
+</ul></li>
+<li>Reduce duplication with functions
+<ul>
+<li>Can use roxygen2 to comment</li>
+</ul></li>
+<li>Run it through the <a href="https://github.com/jimhester/lintr"><code>lintr</code> package</a> to check the syntax, the <a href="https://github.com/r-lib/styler"><code>styler</code> package</a> to reformat the code, and the <a href="https://github.com/ropensci/spelling"><code>spelling</code> package</a> to catch spelling mistakes</li>
+</ul></li>
+<li>Migrate to a project if you have a big notebook
+<ul>
+<li>Suggested folder structure:
+<ul>
+<li>analysis: final report</li>
+<li>src: scripts,</li>
+<li>output: data artifacts</li>
+<li>data: raw source data</li>
+<li>doc: documentation</li>
+<li>ext: external files</li>
+</ul></li>
+<li>The <a href="https://github.com/lockedata/starters"><code>starters</code> package</a> has project templates</li>
+</ul>
+<ol style="list-style-type: decimal">
+<li>script to get data -&gt; raw data file</li>
+<li>script to wrangle data -&gt; output data file</li>
+<li>Markdown</li>
+</ol></li>
+<li>Convert a project to a package if it is widely useful
+<ul>
+<li>Use the <a href="https://github.com/r-lib/pkgdown"><code>pkgdown</code> package</a> to create documentation</li>
+</ul></li>
+</ul>
+</div>
+<div id="renv-project-environment-to-r" class="section level2">
+<h2>renv: Project Environment to R</h2>
+<ul>
+<li>Speaker: Kevin Ushey <a href="https://twitter.com/kevin_ushey">kevin_ushey</a></li>
+<li><a href="https://kevinushey-2020-rstudio-conf.netlify.com/slides.html">Slides</a></li>
+<li>The <a href="https://github.com/rstudio/renv"><code>renv</code> package</a> is a better version of <code>packrat</code>
+<ul>
+<li><code>packrat</code> was challenging to use, and it made it difficult to recover from bad situations</li>
+</ul></li>
+<li>R library paths are just plain directories, but you can have multiple paths (user, system, and site)
+<ul>
+<li>Use <code>find.package()</code> to see where a package is being loaded from</li>
+</ul></li>
+<li>Benefits of <code>renv</code>
+<ul>
+<li>Isolated: each project gets its own set of packages</li>
+<li>Portable: creates a lockfile that can recreate the library</li>
+<li>Reproducible: use <code>renv::snapshot()</code> to create a list of packages used</li>
+</ul></li>
+<li>Steps to use <code>renv</code>
+<ul>
+<li><code>renv::init()</code>
+<ul>
+<li>Forks the state of your default R libraries into a project-local library</li>
+<li>Creates a .Rprofile that sets the library path</li>
+</ul></li>
+<li><code>renv::snapshot()</code> updates the lockfile (renv.lock)</li>
+<li>Commit the lockfile and then have users do <code>renv::restore()</code></li>
+</ul></li>
+<li><code>renv</code> uses a global package cache
+<ul>
+<li>Only keeps one copy of each version of a package</li>
+<li>Saves space and time since you don’t keep multiple copies or spend time reinstalling</li>
+</ul></li>
+<li>They have <a href="https://rstudio.github.io/renv/articles/renv.html#authentication">tips for setting up authentication</a> for Github/GitLab/Bitbucket</li>
+<li><input type="checkbox" disabled="" />
+Create an issue on the package GitHub site and ask them to add support for Azure DevOps (although I think it would need to be implemented in <code>remotes</code> first)</li>
+</ul>
+</div>
+<div id="designing-effective-visualizations" class="section level2">
+<h2>Designing Effective Visualizations</h2>
+<ul>
+<li>Speaker: Miriah Meyer <a href="https://twitter.com/miriah_meyer">miriah_meyer</a></li>
+<li>Design, process, probe</li>
+<li>Spatial encoding is the most effective visualization method
+<ul>
+<li>Position or length/height</li>
+</ul></li>
+<li>Proxy: partial and imperfect representation of the thing the analyst cares about
+<ul>
+<li>Break a task down into an action, object, and measure</li>
+<li>Example: “identify good film directors”
+<ul>
+<li>Scrape movie data from IMDB</li>
+<li>Action: “identify”</li>
+<li>Object: “movie” (proxy for “director”)</li>
+<li>Measure: high IMDB ratings (metric for “good”)</li>
+</ul></li>
+</ul></li>
+<li>Design by immersion</li>
+<li>Zika visualization example
+<ul>
+<li>Experts knew that Brazil showed a higher rate, but only because they report all cases where Columbia doesn’t because they have worse surveillence methods</li>
+<li>Implicit error: experts can add context to the data inside the tool</li>
+</ul></li>
+</ul>
+</div>
+<div id="shiny-new-things-using-rshiny-to-bridge-the-gap-in-emr-reporting" class="section level2">
+<h2>Shiny New Things: Using R/Shiny to Bridge the Gap in EMR Reporting</h2>
+<ul>
+<li>Speaker: Brendan Graham</li>
+<li>Used the <a href="https://github.com/jbkunst/highcharter"><code>highcharter</code> package</a> in Shiny</li>
+<li>They created an internal package called <code>rocqi</code> (pronounced “rocky”)
+<ul>
+<li>CHOP’s internal R package to read data</li>
+<li><input type="checkbox" disabled="" />
+See if they can share</li>
+</ul></li>
+<li>Tip: store SQL in a separate file and read it in in your analysis script</li>
+<li>RStudio Connect has a scheduling pane
+<ul>
+<li>They use it to send an email based on a criteria being met or not</li>
+</ul></li>
+<li>Think about the action that will be driven by the data/tool, and who needs to take it</li>
+</ul>
+</div>
+<div id="mlops-for-r-with-azure-machine-learning" class="section level2">
+<h2>MLOps for R with Azure Machine Learning</h2>
+<ul>
+<li>Speaker: David Smith <a href="https://twitter.com/revodavid">revodavid</a></li>
+<li><a href="https://github.com/revodavid/mlops-r/blob/master/MLOPS%20and%20R%20-%20rstudioconf%20-%2020200130.pdf">Slides</a>, <a href="https://github.com/revodavid/mlops-r">Github</a>, <a href="aka.ms/mlops-r">aka.ms/mlops-r</a></li>
+<li>Azure Machine Learning Service: ml.azure.com
+<ul>
+<li>Dataset: versioning of data</li>
+<li>Experiments: training runs, parameters, metrics</li>
+<li>Pipelines: pieces of integrated code that are part of CI/CD</li>
+<li>Models: registered, versioned models</li>
+<li>Endpoints:
+<ul>
+<li>Real-time (deployed model endpoints)</li>
+<li>Pipeline (training workflow)</li>
+</ul></li>
+<li>Compute: resources used to create models and serve them</li>
+<li>Datasets: connection to data</li>
+</ul></li>
+<li><a href="https://github.com/azure/azureml-sdk-for-r"><code>azuremlsdk</code> package</a>
+<ul>
+<li>Create workspaces, experiments, compute, models, and other artifacts</li>
+<li>HyperDrive (parallel auto-tuning)</li>
+<li>Publish models as web services</li>
+</ul></li>
+<li>All of it works with Azure or your own hardware</li>
+<li>Flow
+<ul>
+<li>Set up server</li>
+<li>Identify the experiment and estimator (i.e. an R script with parameters), and submit</li>
+</ul></li>
+<li><a href="https://docs.microsoft.com/en-us/azure/machine-learning/tutorial-1st-r-experiment">Tutorial: Train and deploy your first model in R with Azure Machine Learning</a></li>
+</ul>
+</div>
+<div id="totally-tidy-tuning-techniques" class="section level2">
+<h2>Totally Tidy Tuning Techniques</h2>
+<ul>
+<li>Speaker: Max Kuhn <a href="https://twitter.com/topepos">topepos</a></li>
+<li>The <a href="https://github.com/tidymodels/tidymodels"><code>tidymodels</code> package</a> is a “meta package” that loads <code>recipes</code>, <code>parsnip</code>, <code>tune</code>, etc.
+<ul>
+<li>General steps are <code>recipe()</code>, <code>step_*()</code></li>
+<li>Use <code>recipes::step_ns()</code> to fit a natural spline</li>
+</ul></li>
+<li><a href="https://github.com/tidymodels/parsnip"><code>parsnip</code> package</a>
+<ul>
+<li>State the type of model and the engine</li>
+<li>Set tuning parameters</li>
+</ul></li>
+<li>Use the <a href="https://github.com/tidymodels/tune"><code>tune</code> package</a> to easily tune model hyperparameters
+<ul>
+<li>Not on CRAN yet</li>
+<li>Replace parameters with <code>tune()</code>
+<ul>
+<li>Has reasonable defaults for the search grid</li>
+<li>If there are two parameters with the same name, you can add an id (<code>tune("Longitude deg_free")</code>)</li>
+</ul></li>
+<li>Create model/recipe or model/formula</li>
+<li>Specify resampling/validation</li>
+<li>Set grid of candidates (optional setting)</li>
+<li>Performance metrics to calculate</li>
+<li>Use <code>tune_grid()</code> to tune the parameters</li>
+<li>Use <code>select_best()</code> to extract the best parameters, and <code>finalize_recipe()</code> / <code>finalize_model()</code> to plug in those parameters</li>
+</ul></li>
+<li>Refer to the blog post <a href="https://www.business-science.io/code-tools/2020/01/21/hyperparamater-tune-product-price-prediction.html">Product Price Prediction: A Tidy Hyperparameter Tuning and Cross Validation Tutorial</a> for how to use <code>tidymodels</code> and <code>tune</code></li>
+</ul>
+</div>
+<div id="neural-networks-for-longitudinal-data-analysis" class="section level2">
+<h2>Neural Networks for Longitudinal Data Analysis</h2>
+<ul>
+<li>Speaker: Sydeaka Watson <a href="https://twitter.com/sydeakawatson">sydeakawatson</a></li>
+<li><a href="github.com/sydeaka/neural_networks_longitudinal">Some related code on GitHub</a></li>
+<li>She predicted baseball performance data for three players</li>
+<li>Setup/sampling
+<ul>
+<li>Used a four-year sliding window, where the first three seasons in the window are used to predict the fourth</li>
+<li>Pad missing data in a season</li>
+<li>Downsampled players with longer careers</li>
+</ul></li>
+<li>To avoid data leakage, she made sure the same player was not in training and validation splits</li>
+<li>Compared several models
+<ul>
+<li>Baseline: OLS, GBM</li>
+<li>RNN: GRU, fully connected dense layers, single-outcome model, multi-outcome model</li>
+</ul></li>
+<li>No feature engineering to encode cross-season interactions</li>
+<li>Used Google Colab to train (12 hours of free time)</li>
+</ul>
+</div>
+<div id="stochastic-block-models-with-r-statistically-rigorous-clustering-with-rigorous-code" class="section level2">
+<h2>Stochastic Block Models with R: Statistically rigorous clustering with rigorous code</h2>
+<ul>
+<li>Speaker: Nick Strayer <a href="https://twitter.com/NicholasStrayer">NicholasStrayer</a></li>
+<li><a href="nickstrayer.me/rstudioconf_sbm">Slides</a></li>
+<li>In an SBM, nodes are grouped into clusters based on the similarity of their edges</li>
+<li>Used SBM to identify similar types of patients from Electronic Health Records
+<ul>
+<li>Bipartite graph connecting patient to diagnosis</li>
+<li>Describes how and why clusters are connected, and how stable they are</li>
+<li>Initially tried deep learning, but they are not interpretable and don’t provide uncertainty</li>
+</ul></li>
+<li>Created the <a href="https://github.com/tbilab/sbmR"><code>sbmR</code> package</a> to fit Stochastic Block Models</li>
+<li>The <a href="https://github.com/igraph/rigraph"><code>igraph</code> package</a> is big with problematic dependencies, so he decided to use <code>Rcpp</code> to create this package</li>
+</ul>
+</div>
+</div>
+<div id="day-4-lightning-talks-2020-01-29" class="section level1">
+<h1>Day 4 lightning talks (2020-01-29)</h1>
+<div id="datasets-in-reproducible-research-with-pins" class="section level2">
+<h2>Datasets in Reproducible Research with ‘pins’</h2>
+<ul>
+<li>Speaker: Javier Luraschi <a href="https://twitter.com/javierluraschi">javierluraschi</a></li>
+<li><a href="https://rpubs.com/jluraschi/strange-downloads">Slides</a></li>
+</ul>
+</div>
+<div id="rproject-templates-to-automate-and-standardize-your-workflow" class="section level2">
+<h2>Rproject templates to automate and standardize your workflow</h2>
+<ul>
+<li>Speaker: Caroline Ledbetter <a href="https://twitter.com/c_line_sealion">c_line_sealion</a></li>
+<li><a href="https://condescending-jackson-8418b6.netlify.com">Slides</a></li>
+<li>Template metadata and function of project</li>
+<li>Check out the <a href="github.com/ledbettc/CIDATools"><code>CIDATools</code> package</a></li>
+<li>Could use this to set up projects for work</li>
+<li>The .dcf file has inputs similar to YAML that describe Shiny-like inputs</li>
+</ul>
+</div>
+<div id="wavesurfer" class="section level2">
+<h2>Wavesurfer</h2>
+<ul>
+<li>Speaker: Athos Damiani <a href="https://twitter.com/athos_damiani">athos_damiani</a></li>
+<li><a href="https://athospd.github.io/rstudio-conf-2020/index.html">Slides</a></li>
+<li>The <a href="https://github.com/Athospd/wavesurfer"><code>wavesurfer</code> R Shiny package</a> can capture annotations for training data</li>
+</ul>
+</div>
+<div id="lessons-about-r-i-learned-from-my-cat" class="section level2">
+<h2>Lessons about R I learned from my cat</h2>
+<ul>
+<li>Speaker: Amanda Gadrow <a href="https://twitter.com/ajmcoqui">ajmcoqui</a></li>
+<li><a href="https://github.com/rstudio/rstudio-conf/blob/master/2020/cats-and-code_Amanda-Gadrow/agadrow_rstudio_conf_2020.pdf">Slides</a></li>
+<li>Recommended file structure for an analysis
+<ul>
+<li>.gitignore</li>
+<li>data</li>
+<li>global.R</li>
+<li>helpers.R</li>
+<li>project.Rproj</li>
+<li>main_analysis.R</li>
+<li>output</li>
+</ul></li>
+<li>Recommended structure within a script
+<ul>
+<li>Load packages</li>
+<li>Source files</li>
+<li>Define objects</li>
+<li>Define functions</li>
+<li>Analyze</li>
+</ul></li>
+<li>Use pipes <code>%&gt;%</code>
+for readability</li>
+</ul>
+</div>
+</div>
+<div id="interesting-packages" class="section level1">
+<h1>Interesting packages</h1>
+<p>Some of these packages I had heard about prior to rstudio::conf, others I had not. I’d like to investigate all of them, time permitting.</p>
+<table>
+<colgroup>
+<col width="29%" />
+<col width="45%" />
+<col width="25%" />
+</colgroup>
+<thead>
+<tr class="header">
+<th>Package</th>
+<th>Description</th>
+<th>GitHub</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td>arrow</td>
+<td>Cross-language development platform for in-memory data</td>
+<td><a href="https://github.com/apache/arrow">apache/arrow</a></td>
+</tr>
+<tr class="even">
+<td>autokeras</td>
+<td>R interface to AutoKeras for automated machine learning</td>
+<td><a href="https://github.com/r-tensorflow/autokeras">r-tensorflow/autokeras</a></td>
+</tr>
+<tr class="odd">
+<td>azuremlsdk</td>
+<td>R interface to Python AzureML SDK to manage cloud resouces, train models, and deploy on ACI/AKS</td>
+<td><a href="https://github.com/azure/azureml-sdk-for-r">azure/azureml-sdk-for-r</a></td>
+</tr>
+<tr class="even">
+<td>brolgar</td>
+<td><strong>BR</strong>owse <strong>O</strong>ver <strong>L</strong>ongitudinal Data <strong>G</strong>raphically and <strong>A</strong>nalytically in <strong>R</strong></td>
+<td><a href="https://github.com/njtierney/brolgar">njtierney/brolgar</a></td>
+</tr>
+<tr class="odd">
+<td>butcher</td>
+<td>Reduce the size of model objects saved to disk</td>
+<td><a href="https://github.com/tidymodels/butcher">tidymodels/butcher</a></td>
+</tr>
+<tr class="even">
+<td>CIDATools</td>
+<td>R project templates to setup folder structures, readme, and git according to CIDA workflow</td>
+<td><a href="https://github.com/ledbettc/CIDATools">ledbettc/CIDATools</a></td>
+</tr>
+<tr class="odd">
+<td>dbr</td>
+<td>Convenient database connections and queries from R on top of DBI</td>
+<td><a href="https://github.com/daroczig/dbr">daroczig/dbr</a></td>
+</tr>
+<tr class="even">
+<td>feasts</td>
+<td><strong>F</strong>eature <strong>E</strong>xtraction <strong>A</strong>nd <strong>S</strong>tatistics for <strong>T</strong>ime <strong>S</strong>eries</td>
+<td><a href="https://github.com/tidyverts/feasts">tidyverts/feasts</a></td>
+</tr>
+<tr class="odd">
+<td>glue</td>
+<td>Glue strings to data in R; small, fast, dependency-free interpreted string literals</td>
+<td><a href="https://github.com/tidyverse/glue">tidyverse/glue</a></td>
+</tr>
+<tr class="even">
+<td>highcharter</td>
+<td>R wrapper for highcharts based on htmlwidgets</td>
+<td><a href="https://github.com/jbkunst/highcharter">jbkunst/highcharter</a></td>
+</tr>
+<tr class="odd">
+<td>lintr</td>
+<td>Static code analysis for R</td>
+<td><a href="https://github.com/jimhester/lintr">jimhester/lintr</a></td>
+</tr>
+<tr class="even">
+<td>loadtest</td>
+<td>Automates performance testing of ML models and summarizes the results in a dashboard</td>
+<td><a href="https://github.com/tmobile/loadtest">tmobile/loadtest</a></td>
+</tr>
+<tr class="odd">
+<td>logger</td>
+<td>A lightweight, modern and flexible, log4j and futile.logger inspired logging utility</td>
+<td><a href="https://github.com/daroczig/logger">daroczig/logger</a></td>
+</tr>
+<tr class="even">
+<td>parsnip</td>
+<td>A tidy unified interface to models</td>
+<td><a href="https://github.com/tidymodels/parsnip">tidymodels/parsnip</a></td>
+</tr>
+<tr class="odd">
+<td>pins</td>
+<td>Pin, discover and share resources</td>
+<td><a href="https://github.com/rstudio/pins">rstudio/pins</a></td>
+</tr>
+<tr class="even">
+<td>pkgdown</td>
+<td>Generate static html documentation for an R package</td>
+<td><a href="https://github.com/r-lib/pkgdown">r-lib/pkgdown</a></td>
+</tr>
+<tr class="odd">
+<td>RBERT</td>
+<td>R implementation of the Python package BERT developed at Google for Natural Language Processing</td>
+<td><a href="https://github.com/jonathanbratt/RBERT">jonathanbratt/RBERT</a></td>
+</tr>
+<tr class="even">
+<td>recipes</td>
+<td>Preprocessing engine to generate design matrices</td>
+<td><a href="https://github.com/tidymodels/recipes">tidymodels/recipes</a></td>
+</tr>
+<tr class="odd">
+<td>renv</td>
+<td>Project environments for R</td>
+<td><a href="https://github.com/rstudio/renv">rstudio/renv</a></td>
+</tr>
+<tr class="even">
+<td>reprex</td>
+<td>Render bits of R code for sharing, e.g., on GitHub or StackOverflow</td>
+<td><a href="https://github.com/tidyverse/reprex">tidyverse/reprex</a></td>
+</tr>
+<tr class="odd">
+<td>sbmR</td>
+<td>Implementation of the bipartite stochastic block model (biSBM) using rcpp</td>
+<td><a href="https://github.com/tbilab/sbmR">tbilab/sbmR</a></td>
+</tr>
+<tr class="even">
+<td>spelling</td>
+<td>Tools for spell checking in R</td>
+<td><a href="https://github.com/ropensci/spelling">ropensci/spelling</a></td>
+</tr>
+<tr class="odd">
+<td>starters</td>
+<td>Initialize projects for various R activities</td>
+<td><a href="https://github.com/lockedata/starters">lockedata/starters</a></td>
+</tr>
+<tr class="even">
+<td>styler</td>
+<td>Non-invasive pretty printing of R code</td>
+<td><a href="https://github.com/r-lib/styler">r-lib/styler</a></td>
+</tr>
+<tr class="odd">
+<td>tfautograph</td>
+<td>Translates R control flow expressions (<code>if</code>, <code>while</code>, <code>for</code>, etc.) into TensorFlow graphs</td>
+<td><a href="https://github.com/t-kalinowski/tfautograph">t-kalinowski/tfautograph</a></td>
+</tr>
+<tr class="even">
+<td>tfdatasets</td>
+<td>R interface to the TensorFlow Dataset API to read, transform, and batch input data at scale</td>
+<td><a href="https://github.com/rstudio/tfdatasets">rstudio/tfdatasets</a></td>
+</tr>
+<tr class="odd">
+<td>tfhub</td>
+<td>R interface to TensorFlow Hub, a library for reusable machine learning modules</td>
+<td><a href="https://github.com/rstudio/tfhub">rstudio/tfhub</a></td>
+</tr>
+<tr class="even">
+<td>tfprobability</td>
+<td>lR interface to TensorFlow Probability, a library for statistical computation and probabilistic modeling</td>
+<td><a href="https://github.com/rstudio/tfprobability">rstudio/tfprobability</a></td>
+</tr>
+<tr class="odd">
+<td>tidymodels</td>
+<td>Easily install and load the Tidymodels packages</td>
+<td><a href="https://github.com/tidymodels/tidymodels">tidymodels/tidymodels</a></td>
+</tr>
+<tr class="even">
+<td>tune</td>
+<td>Tools for tidy parameter tuning</td>
+<td><a href="https://github.com/tidymodels/tune">tidymodels/tune</a></td>
+</tr>
+</tbody>
+</table>
+</div>

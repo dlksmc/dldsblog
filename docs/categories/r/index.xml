@@ -7,10 +7,19 @@
     <generator>Hugo -- gohugo.io</generator>
     <managingEditor>danielrlabar@gmail.com (Dan LaBar)</managingEditor>
     <webMaster>danielrlabar@gmail.com (Dan LaBar)</webMaster>
-    <lastBuildDate>Mon, 20 Jan 2020 00:00:00 +0000</lastBuildDate>
+    <lastBuildDate>Tue, 04 Feb 2020 00:00:00 +0000</lastBuildDate>
     
 	<atom:link href="/categories/r/index.xml" rel="self" type="application/rss+xml" />
     
+    
+    <item>
+      <title>Notes from rstudio::conf(2020L)</title>
+      <link>/post/2020-02-04-notes-from-rstudio-conf-2020l/</link>
+      <pubDate>Tue, 04 Feb 2020 00:00:00 +0000</pubDate>
+      <author>danielrlabar@gmail.com (Dan LaBar)</author>
+      <guid>/post/2020-02-04-notes-from-rstudio-conf-2020l/</guid>
+      <description>Day 3 sessions (2020-01-29)  Open Source Software for Data Science Data, Visualization, and Designing with AI Deploying End-to-End Data Science with Shiny, Plumber, and Pins We’re hitting R a million times a day so we made a talk about it Azure Pipelines and Github Actions Accelerating Analytics with Apache Arrow Updates on Spark MLFlow, and the broader ML ecosystem What’s new in Tensorflow for R? Deep Learning with R Getting things logged Building a native iPad dashboard using Plumber and RStudio Connect in Pharma FlatironKitchen: How we overhauled a Frakensteinian SQL workflow with the Tidyverse Making better spaghetti (plots): Exploring longitudinal data with the brolgar package  Day 4 sessions (2020-01-30)  Object of type ‘closure’ is not subsettable RMarkdown Driven Development renv: Project Environment to R Designing Effective Visualizations Shiny New Things: Using R/Shiny to Bridge the Gap in EMR Reporting MLOps for R with Azure Machine Learning Totally Tidy Tuning Techniques Neural Networks for Longitudinal Data Analysis Stochastic Block Models with R: Statistically rigorous clustering with rigorous code  Day 4 lightning talks (2020-01-29)  Datasets in Reproducible Research with ‘pins’ Rproject templates to automate and standardize your workflow Wavesurfer Lessons about R I learned from my cat  Interesting packages</description>
+    </item>
     
     <item>
       <title>Schedule for rstudio::conf(2020L) talks</title>

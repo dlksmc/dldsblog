@@ -1,15 +1,15 @@
 <?xml version="1.0" encoding="utf-8" standalone="yes"?>
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
   <channel>
-    <title>Posts on DL;DS</title>
-    <link>/post/</link>
-    <description>Recent content in Posts on DL;DS</description>
+    <title>notes on DL;DS</title>
+    <link>/tags/notes/</link>
+    <description>Recent content in notes on DL;DS</description>
     <generator>Hugo -- gohugo.io</generator>
     <managingEditor>danielrlabar@gmail.com (Dan LaBar)</managingEditor>
     <webMaster>danielrlabar@gmail.com (Dan LaBar)</webMaster>
     <lastBuildDate>Tue, 04 Feb 2020 00:00:00 +0000</lastBuildDate>
     
-	<atom:link href="/post/index.xml" rel="self" type="application/rss+xml" />
+	<atom:link href="/tags/notes/index.xml" rel="self" type="application/rss+xml" />
     
     
     <item>
@@ -19,15 +19,6 @@
       <author>danielrlabar@gmail.com (Dan LaBar)</author>
       <guid>/post/2020-02-04-notes-from-rstudio-conf-2020l/</guid>
       <description>Day 3 sessions (2020-01-29)  Open Source Software for Data Science Data, Visualization, and Designing with AI Deploying End-to-End Data Science with Shiny, Plumber, and Pins We’re hitting R a million times a day so we made a talk about it Azure Pipelines and Github Actions Accelerating Analytics with Apache Arrow Updates on Spark MLFlow, and the broader ML ecosystem What’s new in Tensorflow for R? Deep Learning with R Getting things logged Building a native iPad dashboard using Plumber and RStudio Connect in Pharma FlatironKitchen: How we overhauled a Frakensteinian SQL workflow with the Tidyverse Making better spaghetti (plots): Exploring longitudinal data with the brolgar package  Day 4 sessions (2020-01-30)  Object of type ‘closure’ is not subsettable RMarkdown Driven Development renv: Project Environment to R Designing Effective Visualizations Shiny New Things: Using R/Shiny to Bridge the Gap in EMR Reporting MLOps for R with Azure Machine Learning Totally Tidy Tuning Techniques Neural Networks for Longitudinal Data Analysis Stochastic Block Models with R: Statistically rigorous clustering with rigorous code  Day 4 lightning talks (2020-01-29)  Datasets in Reproducible Research with ‘pins’ Rproject templates to automate and standardize your workflow Wavesurfer Lessons about R I learned from my cat  Interesting packages</description>
-    </item>
-    
-    <item>
-      <title>Schedule for rstudio::conf(2020L) talks</title>
-      <link>/post/2020-01-20-schedule-for-rstudio-conf-2020l-talks/</link>
-      <pubDate>Mon, 20 Jan 2020 00:00:00 +0000</pubDate>
-      <author>danielrlabar@gmail.com (Dan LaBar)</author>
-      <guid>/post/2020-01-20-schedule-for-rstudio-conf-2020l-talks/</guid>
-      <description>1 Intro 2 Setup  2.1 Packages 2.2 Page rendering tool 2.3 Check robots.txt  3 Scrape  3.1 Load the page 3.2 Examine the content 3.3 Get the JSON  3.3.1 Session 3.3.2 Speaker 3.3.3 Category   4 Prepare  4.1 Convert dates/times 4.2 Add category name and style 4.3 Split out list columns 4.4 Speaker info for each session 4.</description>
     </item>
     
   </channel>
