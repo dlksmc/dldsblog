@@ -13,7 +13,7 @@ tags:
   - notes
 type: ''
 subtitle: "What I learned (or at least wrote down) at the RStudio Conference"
-image: 'post/2020-02-04-notes-from-rstudio-conf-2020l/rstudioconf2020notes.png'
+image: 'post/2020-02-04-notes-from-rstudio-conf-2020l/rstudioconf2020notes_sm.png'
 description: "<p>The RStudio Conference in San Francisco last week was a great experience!  I'm posting my raw notes here, and hopefully will create a summary with some highlights at some point in the future.</p>"
 output:
   blogdown::html_page:
@@ -22,13 +22,15 @@ output:
 ---
 
 <br>
-<img style="width:100%;" src="rstudioconf2020notes.png" alt="RStudio Conference 2020 notes" />
+<img style="width:100%;" src="rstudioconf2020notes_sm.png" alt="RStudio Conference 2020 notes" />
+<figcaption>*View of the city and the bay from the top floor of the hotel where the conference was held<br>&copy; 2020 Dan LaBar*</figcaption>
+<p />
 
 I had the good fortune to attend the RStudio Conference in San Francisco last week.  It was a great experience!
 
-Unfortunately, after being away from my day job for a week, I have quite a bit of catching up to do and not enough time to blog about what I saw and learned at the conference.  I did however try to take notes during all the talks I attended, so I'm posting them here with the hopes of eventually coming back and pulling out some summaries of the most interesting parts.
+Unfortunately, after being away from my day job for a week, I have quite a bit of catching up to do and not enough time to blog about what I saw and learned at the conference.  I did however try to take notes during [all the talks](../2020-01-20-schedule-for-rstudio-conf-2020l-talks) I attended, so I'm posting them here with the hopes of eventually coming back and pulling out some summaries of the most interesting parts.
 
-You can follow along with the code from all of the 2-day workshops at [github.com/rstudio-conf-2020](https://github.com/rstudio-conf-2020), and the presentation videos from the third and fourth days should eventually be posted at [resources.rstudio.com/rstudio-conf-2020](https://resources.rstudio.com/rstudio-conf-2020).  In the meantime, [Emil Hvitfeldt](https://twitter.com/Emil_Hvitfeldt) and friends have collected links to slides and other resources at [github.com/EmilHvitfeldt/RStudioConf2020Slides](https://github.com/EmilHvitfeldt/RStudioConf2020Slides).
+You can follow along with the code from all of the 2-day workshops at [github.com/rstudio-conf-2020](https://github.com/rstudio-conf-2020), and the presentation videos from the third and fourth days should eventually be posted at [resources.rstudio.com/rstudio-conf-2020](https://resources.rstudio.com/rstudio-conf-2020).  In the meantime, [Emil Hvitfeldt](https://twitter.com/Emil_Hvitfeldt) and friends have collected links to slides and other resources at [github.com/EmilHvitfeldt/RStudioConf2020Slides](https://github.com/EmilHvitfeldt/RStudioConf2020Slides).  The cmdline site has also collected [tweets from presenters sharing links to their presentation slides](https://cmdlinetips.com/2020/01/slides-from-rstudio-conference-2020/).
 
 
 # Day 3 sessions (2020-01-29)
@@ -100,6 +102,13 @@ You can follow along with the code from all of the 2-day workshops at [github.co
 - [Slides](https://putrinprod.com/talks/rstudioconf2020.pdf)
 - The [`loadtest` package](https://github.com/tmobile/loadtest) performs load testing
 - Look at more than just average response time
+
+## Practical Plumber Patterns
+- Speaker: James Blair
+- [Slides](https://github.com/rstudio/rstudio-conf/blob/master/2020/practical-plumber-patterns_James-Blair/slides.pdf)
+- The [`ppp` package](https://github.com/blairj09/ppp) (Practical `plumber` Patterns) shows an example API that predicts housing prices
+  - In the example package, James shows how to test, deploy, and scale the model/API
+- I didn't get to attend this presentation, but it looks like a great `plumber` guide!
 
 ## ~~Azure Pipelines and~~ Github Actions
 - Speaker: Jim Hester [jimhester_](https://twitter.com/jimhester_)
@@ -224,23 +233,37 @@ You can follow along with the code from all of the 2-day workshops at [github.co
 - Solution
   - Centralized code
   - Modular, functional code
-    - Start this, do that, plot that
+    - "Start this", "do that", "plot that"
     - Recipes / vignettes
-    - Tested and verbose
-- FlatironKitchen package
-  - Object with database connection, patient data, etc.
-  - Print method shows the number of patients, dates, warnings
-  - `fi_cohort_start("SkinCancer")`
-    - Tells you when it starts, what tables it is touching, size of cohort
-  - `fi_add_demographics()` pulls from the demographic table and adds it to the recipe
-  - `fi_add_mortality()` pulls data from the death table and adds it to the recipe
-    - Can easily show the number of deaths, most recent death, etc.
-  - Window functions like `fi_add_biomarker()` query and summarize one-to-many tables
-    - You can pick the last value after/before an event, how many events (N), and several other versions
-  - `fi_calc_age()` calculates the patient age at a date given a column name for their birthdate and the event date
-  - `fi_cohort_include()` filters the cohort and includes a human-readable description of the filter
-  - Put together a piped set of recipe steps
+    - Verbose
+      - It tells you what it's doing, why, and the results
+    - Tested
+- They created an internal package called `FlatironKitchen`
+  - R object with slots for the database connection, patient data, etc.
+  - Pipes together a series of recipe steps
+  - The print method for each recipe step is very informative
+    - The message includes the name of the source table, new column names added to the R table, the count and percentage of matching rows for patients, date ranges, warnings, and a misc standard note
   - Several built-in plot methods
+  - Unable to release the package since it is highly customized to their data environment
+- `fi_cohort_start("SkinCancer")`
+  - Connects to the database and initializes a table in R containing one row per patient from the "SkinCancer" cohort
+  - Tells you when it starts, what tables it is touching, size of cohort
+- There are several `fi_add_*()` funtions that add one or more columns to the cohort table
+    - Examples
+      - `fi_add_demographics()` pulls from the demographic table and adds it to the recipe
+       - `fi_add_mortality()` pulls data from the death table and adds it to the recipe
+         - Can easily show the number of deaths, most recent death, etc.
+    - They always perform left joins between tables in the source database
+      - The table names and keys (column names like `patient_id`) are specific to their data and hardcoded in the functions
+      - This makes it very easy for users of FlatironKitchen, but it would take some effort to make it more generalizable
+    - There are checks to make sure that the functions don't remove columns or rows
+- Window functions like `fi_add_biomarker()` query and summarize one-to-many tables
+  - You can pick the last value after/before an event, how many events (N), and several other versions
+- `fi_calc_age()` calculates the patient age at a date given a column name for their birthdate and the event date
+- `fi_cohort_include()` filters the cohort and includes a human-readable description of the filter
+- One concern that was brought up by others in the org was "What if people use the data without knowing what it means?"
+  - While making the data accessible to more people, they wanted to make sure that they promoted responsible understanding/use of the data
+  - It was important to guide the users and provide good documentation (including the informative console output), and the underlying functions have a lot of checks built in
 
 ## Making better spaghetti (plots): Exploring longitudinal data with the brolgar package
 - Speaker: Nick Tierney [nj_tierney](https://twitter.com/nj_tierney)
@@ -412,6 +435,7 @@ You can follow along with the code from all of the 2-day workshops at [github.co
 
 ## Totally Tidy Tuning Techniques
 - Speaker: Max Kuhn [topepos](https://twitter.com/topepos)
+- [Slides](totally-tidy-tuning-tools-Max-Kuhn/tune.html), [GitHub](https://github.com/rstudio/rstudio-conf/blob/master/2020/totally-tidy-tuning-tools-Max-Kuhn)
 - The [`tidymodels` package](https://github.com/tidymodels/tidymodels) is a "meta package" that loads `recipes`, `parsnip`, `tune`, etc.
   - General steps are `recipe()`, `step_*()`
   - Use `recipes::step_ns()` to fit a natural spline

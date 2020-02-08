@@ -59,7 +59,7 @@
   "headline": "Notes from rstudio::conf(2020L)",
   "description" : "The RStudio Conference in San Francisco last week was a great experience! I\x27m posting my raw notes here, and hopefully will create a summary with some highlights at some point in the future.\n",
   "inLanguage" : "en",
-  "wordCount":  4084 ,
+  "wordCount":  4413 ,
   "datePublished" : "2020-02-04T00:00:00",
   "dateModified" : "2020-02-04T00:00:00",
   "image" : "\/img\/embiggenData.png",
@@ -80,14 +80,14 @@
 
 <meta property="og:title" content="Notes from rstudio::conf(2020L)" />
 <meta property="og:description" content="&lt;p&gt;The RStudio Conference in San Francisco last week was a great experience!  I&#39;m posting my raw notes here, and hopefully will create a summary with some highlights at some point in the future.&lt;/p&gt;">
-<meta property="og:image" content="/post/2020-02-04-notes-from-rstudio-conf-2020l/rstudioconf2020notes.png" />
+<meta property="og:image" content="/post/2020-02-04-notes-from-rstudio-conf-2020l/rstudioconf2020notes_sm.png" />
 <meta property="og:url" content="/post/2020-02-04-notes-from-rstudio-conf-2020l/" />
 <meta property="og:type" content="website" />
 <meta property="og:site_name" content="DL;DS" />
 
   <meta name="twitter:title" content="Notes from rstudio::conf(2020L)" />
   <meta name="twitter:description" content="&lt;p&gt;The RStudio Conference in San Francisco last week was a great experience!  I&#39;m posting my raw notes here, and hopefully will create a summary with some highlights at some point in the future.&lt;/p&gt;">
-  <meta name="twitter:image" content="/post/2020-02-04-notes-from-rstudio-conf-2020l/rstudioconf2020notes.png" />
+  <meta name="twitter:image" content="/post/2020-02-04-notes-from-rstudio-conf-2020l/rstudioconf2020notes_sm.png" />
   <meta name="twitter:card" content="summary" />
   <meta name="twitter:site" content="@embiggenData" />
   <meta name="twitter:creator" content="@embiggenData" />
@@ -244,10 +244,10 @@
   <i class="fas fa-calendar"></i>&nbsp;Posted on February 4, 2020
   
   
-    &nbsp;|&nbsp;<i class="fas fa-clock"></i>&nbsp;20&nbsp;minutes
+    &nbsp;|&nbsp;<i class="fas fa-clock"></i>&nbsp;21&nbsp;minutes
   
   
-    &nbsp;|&nbsp;<i class="fas fa-book"></i>&nbsp;4084&nbsp;words
+    &nbsp;|&nbsp;<i class="fas fa-book"></i>&nbsp;4413&nbsp;words
   
   
     
@@ -283,6 +283,7 @@
 <li><a href="#data-visualization-and-designing-with-ai">Data, Visualization, and Designing with AI</a></li>
 <li><a href="#deploying-end-to-end-data-science-with-shiny-plumber-and-pins">Deploying End-to-End Data Science with Shiny, Plumber, and Pins</a></li>
 <li><a href="#were-hitting-r-a-million-times-a-day-so-we-made-a-talk-about-it">We’re hitting R a million times a day so we made a talk about it</a></li>
+<li><a href="#practical-plumber-patterns">Practical Plumber Patterns</a></li>
 <li><a href="#azure-pipelines-and-github-actions"><del>Azure Pipelines and</del> Github Actions</a></li>
 <li><a href="#accelerating-analytics-with-apache-arrow">Accelerating Analytics with Apache Arrow</a></li>
 <li><a href="#updates-on-spark-mlflow-and-the-broader-ml-ecosystem">Updates on Spark MLFlow, and the broader ML ecosystem</a></li>
@@ -316,11 +317,15 @@
 </ul>
 </div>
 
-<p><br>
-<img style="width:100%;" src="rstudioconf2020notes.png" alt="RStudio Conference 2020 notes" /></p>
+<br>
+<img style="width:100%;" src="rstudioconf2020notes_sm.png" alt="RStudio Conference 2020 notes" />
+<figcaption>
+<em>View of the city and the bay from the top floor of the hotel where the conference was held<br>© 2020 Dan LaBar</em>
+</figcaption>
+<p />
 <p>I had the good fortune to attend the RStudio Conference in San Francisco last week. It was a great experience!</p>
-<p>Unfortunately, after being away from my day job for a week, I have quite a bit of catching up to do and not enough time to blog about what I saw and learned at the conference. I did however try to take notes during all the talks I attended, so I’m posting them here with the hopes of eventually coming back and pulling out some summaries of the most interesting parts.</p>
-<p>You can follow along with the code from all of the 2-day workshops at <a href="https://github.com/rstudio-conf-2020">github.com/rstudio-conf-2020</a>, and the presentation videos from the third and fourth days should eventually be posted at <a href="https://resources.rstudio.com/rstudio-conf-2020">resources.rstudio.com/rstudio-conf-2020</a>. In the meantime, <a href="https://twitter.com/Emil_Hvitfeldt">Emil Hvitfeldt</a> and friends have collected links to slides and other resources at <a href="https://github.com/EmilHvitfeldt/RStudioConf2020Slides">github.com/EmilHvitfeldt/RStudioConf2020Slides</a>.</p>
+<p>Unfortunately, after being away from my day job for a week, I have quite a bit of catching up to do and not enough time to blog about what I saw and learned at the conference. I did however try to take notes during <a href="../2020-01-20-schedule-for-rstudio-conf-2020l-talks">all the talks</a> I attended, so I’m posting them here with the hopes of eventually coming back and pulling out some summaries of the most interesting parts.</p>
+<p>You can follow along with the code from all of the 2-day workshops at <a href="https://github.com/rstudio-conf-2020">github.com/rstudio-conf-2020</a>, and the presentation videos from the third and fourth days should eventually be posted at <a href="https://resources.rstudio.com/rstudio-conf-2020">resources.rstudio.com/rstudio-conf-2020</a>. In the meantime, <a href="https://twitter.com/Emil_Hvitfeldt">Emil Hvitfeldt</a> and friends have collected links to slides and other resources at <a href="https://github.com/EmilHvitfeldt/RStudioConf2020Slides">github.com/EmilHvitfeldt/RStudioConf2020Slides</a>. The cmdline site has also collected <a href="https://cmdlinetips.com/2020/01/slides-from-rstudio-conference-2020/">tweets from presenters sharing links to their presentation slides</a>.</p>
 <div id="day-3-sessions-2020-01-29" class="section level1">
 <h1>Day 3 sessions (2020-01-29)</h1>
 <div id="open-source-software-for-data-science" class="section level2">
@@ -431,6 +436,18 @@
 <li><a href="https://putrinprod.com/talks/rstudioconf2020.pdf">Slides</a></li>
 <li>The <a href="https://github.com/tmobile/loadtest"><code>loadtest</code> package</a> performs load testing</li>
 <li>Look at more than just average response time</li>
+</ul>
+</div>
+<div id="practical-plumber-patterns" class="section level2">
+<h2>Practical Plumber Patterns</h2>
+<ul>
+<li>Speaker: James Blair</li>
+<li><a href="https://github.com/rstudio/rstudio-conf/blob/master/2020/practical-plumber-patterns_James-Blair/slides.pdf">Slides</a></li>
+<li>The <a href="https://github.com/blairj09/ppp"><code>ppp</code> package</a> (Practical <code>plumber</code> Patterns) shows an example API that predicts housing prices
+<ul>
+<li>In the example package, James shows how to test, deploy, and scale the model/API</li>
+</ul></li>
+<li>I didn’t get to attend this presentation, but it looks like a great <code>plumber</code> guide!</li>
 </ul>
 </div>
 <div id="azure-pipelines-and-github-actions" class="section level2">
@@ -625,23 +642,47 @@
 <li>Centralized code</li>
 <li>Modular, functional code
 <ul>
-<li>Start this, do that, plot that</li>
+<li>“Start this”, “do that”, “plot that”</li>
 <li>Recipes / vignettes</li>
-<li>Tested and verbose</li>
-</ul></li>
-</ul></li>
-<li>FlatironKitchen package
+<li>Verbose
 <ul>
-<li>Object with database connection, patient data, etc.</li>
-<li>Print method shows the number of patients, dates, warnings</li>
+<li>It tells you what it’s doing, why, and the results</li>
+</ul></li>
+<li>Tested</li>
+</ul></li>
+</ul></li>
+<li>They created an internal package called <code>FlatironKitchen</code>
+<ul>
+<li>R object with slots for the database connection, patient data, etc.</li>
+<li>Pipes together a series of recipe steps</li>
+<li>The print method for each recipe step is very informative
+<ul>
+<li>The message includes the name of the source table, new column names added to the R table, the count and percentage of matching rows for patients, date ranges, warnings, and a misc standard note</li>
+</ul></li>
+<li>Several built-in plot methods</li>
+<li>Unable to release the package since it is highly customized to their data environment</li>
+</ul></li>
 <li><code>fi_cohort_start("SkinCancer")</code>
 <ul>
+<li>Connects to the database and initializes a table in R containing one row per patient from the “SkinCancer” cohort</li>
 <li>Tells you when it starts, what tables it is touching, size of cohort</li>
 </ul></li>
+<li>There are several <code>fi_add_*()</code> funtions that add one or more columns to the cohort table
+<ul>
+<li>Examples
+<ul>
 <li><code>fi_add_demographics()</code> pulls from the demographic table and adds it to the recipe</li>
 <li><code>fi_add_mortality()</code> pulls data from the death table and adds it to the recipe
 <ul>
 <li>Can easily show the number of deaths, most recent death, etc.</li>
+</ul></li>
+</ul></li>
+<li>They always perform left joins between tables in the source database
+<ul>
+<li>The table names and keys (column names like <code>patient_id</code>) are specific to their data and hardcoded in the functions</li>
+<li>This makes it very easy for users of FlatironKitchen, but it would take some effort to make it more generalizable</li>
+</ul></li>
+<li>There are checks to make sure that the functions don’t remove columns or rows</li>
 </ul></li>
 <li>Window functions like <code>fi_add_biomarker()</code> query and summarize one-to-many tables
 <ul>
@@ -649,8 +690,10 @@
 </ul></li>
 <li><code>fi_calc_age()</code> calculates the patient age at a date given a column name for their birthdate and the event date</li>
 <li><code>fi_cohort_include()</code> filters the cohort and includes a human-readable description of the filter</li>
-<li>Put together a piped set of recipe steps</li>
-<li>Several built-in plot methods</li>
+<li>One concern that was brought up by others in the org was “What if people use the data without knowing what it means?”
+<ul>
+<li>While making the data accessible to more people, they wanted to make sure that they promoted responsible understanding/use of the data</li>
+<li>It was important to guide the users and provide good documentation (including the informative console output), and the underlying functions have a lot of checks built in</li>
 </ul></li>
 </ul>
 </div>
@@ -932,6 +975,7 @@ See if they can share</li>
 <h2>Totally Tidy Tuning Techniques</h2>
 <ul>
 <li>Speaker: Max Kuhn <a href="https://twitter.com/topepos">topepos</a></li>
+<li><a href="totally-tidy-tuning-tools-Max-Kuhn/tune.html">Slides</a>, <a href="https://github.com/rstudio/rstudio-conf/blob/master/2020/totally-tidy-tuning-tools-Max-Kuhn">GitHub</a></li>
 <li>The <a href="https://github.com/tidymodels/tidymodels"><code>tidymodels</code> package</a> is a “meta package” that loads <code>recipes</code>, <code>parsnip</code>, <code>tune</code>, etc.
 <ul>
 <li>General steps are <code>recipe()</code>, <code>step_*()</code></li>
