@@ -1,0 +1,65 @@
+---
+title: Winning at Wordle
+author: Dan LaBar
+date: "`r format(Sys.time(), '%Y-%m-%d')`"
+#date: "2020-01-20"
+slug: []
+categories:
+  - analysis
+tags:
+  - R
+  - analysis
+  - puzzle
+  - optimization
+  - wordle
+type: ''
+subtitle: 'Using data science to annoy your friends'
+image: 'post/2022-03-13-winning-at-wordle/wordle_crate_soily_proxy.png'
+description: "<p>The <a href='https://www.nytimes.com/games/wordle/index.html'>Wordle</a> craze has swept the nation. Tired of annoying posts with weird characters like &#11036;&#129000;&#129001;&#11036;&#11036; from friends and strangers boasting that they've solved it in four tries, while you barely got it in six? You could always cheat, but that wouldn't be ethical or satisfying. This post uses (data) science to give you a Wordle edge!</p>"
+output:
+  blogdown::html_page:
+    number_sections: true
+    toc: true
+---
+  
+<!-- iOS optimization from https://github.com/almende/vis/issues/1619#issuecomment-178090892 -->
+<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no" />
+  <script type="text/javascript">
+  document.ontouchmove = function(event){
+    event.preventDefault();
+  }
+</script>
+
+*On the off chance you haven't heard of Wordle, go read [this explainer from CNET](https://www.cnet.com/culture/internet/wordle-everything-you-need-to-know-about-the-word-game-gone-viral/) and come back.  Caution: Do not attempt to play Wordle in the meantime, or you may be hooked and never finish this post.*
+  
+# Intro
+
+The [Wordle](https://www.nytimes.com/games/wordle/index.html) craze has swept the nation. Are you tired of seeing annoying posts with weird characters like &#11036;&#129000;&#129001;&#11036;&#11036; from friends and strangers boasting that they've solved it in four tries, while you barely got it in six? You could always [cheat](https://gamertweak.com/wordle-answers/), but that wouldn't be ethical or satisfying.
+
+This post uses (data) science &#128105;&#8205;&#128300; to give you a Wordle edge!  If you prefer your edge &#127839; without eating your science &#129382; first, just fast forward &#9193; to the [results](#results).
+
+## Overview
+
+- Get a list of all words recognized by Wordle, including words that can be used as a guess but are never a solution
+- 
+
+## Data
+
+```r
+pacman::p_load(fs ggplot2, scales, data.table)
+
+## URL to repo that has Wordle word list
+wdurl <-
+  "https://raw.githubusercontent.com/Kinkelin/WordleCompetition/main/data/official/"
+
+## Download the list of recognized words
+wdlst <- fread(paste0(wdurl, "combined_wordlist.txt"), col.names="word")
+
+## Download the list of answers/solutions
+anlst <- fread(paste0(wdurl, "shuffled_real_wordles.txt"), col.names="word")
+
+anslst
+```
+
+[Wordle example (proxy)](https://www.devangthakkar.com/wordle_archive/?213)
+
